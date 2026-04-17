@@ -11,6 +11,25 @@
         p { font-size: 1rem; color: #888; margin-top: 15px; letter-spacing: 0.1em; }
         .contact { margin-top: 30px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px; }
         a { color: #1a1a1a; text-decoration: none; font-weight: 500; }
+        @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+ .contact {
+    border-color: #333;
+  }
+
+  a {
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+} /* <--- Вот эта скобка должна закрывать ВЕСЬ блок и стоять в конце */
     </style>
 </head>
 <body>
