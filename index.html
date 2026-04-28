@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Использование SVG-фавиконки (современный стандарт) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <!-- Резервные иконки (оставляем для совместимости) -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     
@@ -11,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESTWE</title>
     
-    <!-- Подключаем шрифт Inter из Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -31,14 +28,12 @@
             }
         }
 
-        /* Анимация плавного появления */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         body {
-            /* Применяем новый шрифт Inter */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
             justify-content: center;
@@ -56,7 +51,6 @@
             padding: 20px;
             width: 100%;
             max-width: 500px;
-            /* Запуск анимации */
             animation: fadeIn 1.2s ease-out forwards;
         }
 
@@ -73,7 +67,7 @@
             font-size: 0.9rem;
             opacity: 0.5;
             margin-top: 10px;
-            letter-spacing: 0.2em; /* Увеличили разрядку для премиальности */
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             font-weight: 300;
         }
@@ -89,7 +83,8 @@
             .contact { border-color: rgba(255,255,255,0.1); }
         }
 
-        a {
+                a {
+            font-family: 'Inter', sans-serif; /* Явно задаем шрифт */
             color: var(--text);
             text-decoration: none;
             font-weight: 400;
