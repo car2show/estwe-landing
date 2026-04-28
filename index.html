@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Использование SVG-фавиконки (современный стандарт) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Резервные иконки (оставляем для совместимости) -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESTWE</title>
+    
+    <!-- Подключаем шрифт Inter из Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: #F5F5F7;
@@ -23,8 +31,15 @@
             }
         }
 
+        /* Анимация плавного появления */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            /* Применяем новый шрифт Inter */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,7 +47,8 @@
             margin: 0;
             background-color: var(--bg);
             color: var(--text);
-            transition: all 0.5s ease;
+            transition: background-color 0.5s ease;
+            overflow: hidden;
         }
 
         .container {
@@ -40,6 +56,8 @@
             padding: 20px;
             width: 100%;
             max-width: 500px;
+            /* Запуск анимации */
+            animation: fadeIn 1.2s ease-out forwards;
         }
 
         .logo {
@@ -47,23 +65,24 @@
             max-width: 320px;
             height: auto;
             filter: var(--logo-filter);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             transition: filter 0.5s ease;
         }
 
         p {
-            font-size: 1rem;
-            opacity: 0.6;
+            font-size: 0.9rem;
+            opacity: 0.5;
             margin-top: 10px;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em; /* Увеличили разрядку для премиальности */
+            text-transform: uppercase;
             font-weight: 300;
         }
 
         .contact {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 20px;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 25px;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -74,8 +93,9 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 400;
-            opacity: 0.8;
+            opacity: 0.7;
             transition: opacity 0.3s;
+            letter-spacing: 0.05em;
         }
 
         a:hover {
@@ -86,9 +106,7 @@
 <body>
     <div class="container">
         <img src="logo.svg" alt="ESTWE" class="logo">
-        
         <p>We exist. Soon.</p>
-        
         <div class="contact">
             <a href="mailto:info@estwe.com">info@estwe.com</a>
         </div>
