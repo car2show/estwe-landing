@@ -47,6 +47,21 @@
         .social-icon:hover { opacity: 1; transform: translateY(-2px); }
 
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+        @keyframes pulse {
+    0% { filter: drop-shadow(0 0 0px transparent); }
+    50% { filter: drop-shadow(0 0 15px rgba(218, 165, 32, 0.2)); }
+    100% { filter: drop-shadow(0 0 0px transparent); }
+}
+.logo-svg { 
+    width: 100%; 
+    fill: var(--text); 
+    margin-bottom: 20px; 
+    transition: 0.8s;
+    /* Сначала проигрываем slideUp, а затем запускаем бесконечный pulse */
+    animation: slideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, 
+               pulse 4s infinite ease-in-out 1.2s; 
+}
     </style>
 </head>
 <body>
