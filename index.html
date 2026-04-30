@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-/* база */
 :root {
   --bg: #000;
   --text: #C5A059;
@@ -33,7 +32,6 @@ a {
   text-decoration: none;
 }
 
-/* контейнер */
 .container {
   text-align: center;
   max-width: 340px;
@@ -53,7 +51,6 @@ a {
   fill: currentColor;
   opacity: 0;
   transform: translateY(10px);
-  will-change: transform, opacity;
   animation:
     reveal 1.2s cubic-bezier(0.22,1,0.36,1) forwards,
     glow 5s ease-in-out infinite 1.2s;
@@ -77,8 +74,7 @@ a {
   animation: shine 2.5s ease forwards 1s;
 }
 
-/* --- ТЕКСТ --- */
-
+/* текст */
 p {
   font-size: 0.75rem;
   opacity: 0.5;
@@ -90,21 +86,23 @@ p {
 /* --- ФУТЕР --- */
 
 .contact {
-  margin-top: 50px;
+  margin-top: 60px;
   border-top: 1px solid var(--border);
   padding-top: 25px;
 }
 
 /* почта */
 .mail-link {
-  opacity: 0.5;
+  font-size: 0.8rem;
+  opacity: 0.45;
+  letter-spacing: 0.05em;
   transition: all 0.3s ease;
 }
 
 .mail-link:hover {
-  opacity: 1;
+  opacity: 0.9;
   transform: translateY(-1px);
-  text-shadow: 0 0 6px rgba(197,160,89,0.3);
+  text-shadow: 0 0 6px rgba(197,160,89,0.25);
 }
 
 /* --- СОЦСЕТИ --- */
@@ -112,30 +110,40 @@ p {
 .socials {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 28px;
+  margin-top: 10px;
 }
 
-/* ВАЖНО: анимация на SVG, не на <a> */
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .social-icon {
   width: 20px;
   height: 20px;
   fill: currentColor;
-  opacity: 0.4;
+  opacity: 0.35;
 
-  /* фикс для всех браузеров */
   transform: translateZ(0);
-  will-change: transform;
+  will-change: transform, opacity;
 
-  animation: iconBreathe 6s ease-in-out infinite;
-  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  animation: iconPulse 8s ease-in-out infinite;
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
 }
 
-/* hover — только тут glow */
+/* hover */
 .socials a:hover .social-icon {
   opacity: 1;
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 6px rgba(197,160,89,0.5));
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 8px rgba(197,160,89,0.45));
 }
+
+/* микро-задержка */
+.socials a:nth-child(1) { transition-delay: 0.02s; }
+.socials a:nth-child(2) { transition-delay: 0.05s; }
+.socials a:nth-child(3) { transition-delay: 0.08s; }
 
 /* --- АНИМАЦИИ --- */
 
@@ -146,36 +154,28 @@ p {
   }
 }
 
-/* glow только на логотипе (это ок) */
 @keyframes glow {
   0%   { filter: drop-shadow(0 0 2px rgba(197,160,89,0.1)); }
   50%  { filter: drop-shadow(0 0 16px rgba(197,160,89,0.35)); }
   100% { filter: drop-shadow(0 0 2px rgba(197,160,89,0.1)); }
 }
 
-/* стабильная анимация (без лагов в Firefox) */
-@keyframes iconBreathe {
-  0%,100% {
-    transform: scale(1);
+/* редкий импульс (Safari-safe) */
+@keyframes iconPulse {
+  0%, 90%, 100% {
+    transform: translateY(0);
+    opacity: 0.35;
   }
-  50% {
-    transform: scale(1.04);
+  95% {
+    transform: translateY(-1.5px);
+    opacity: 0.65;
   }
 }
 
-/* блик */
 @keyframes shine {
-  0% {
-    left: -120%;
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  100% {
-    left: 120%;
-    opacity: 0;
-  }
+  0% { left: -120%; opacity: 0; }
+  30% { opacity: 1; }
+  100% { left: 120%; opacity: 0; }
 }
 
 /* доступность */
@@ -204,7 +204,10 @@ p {
 <p>We exist. Soon.</p>
 
 <footer class="contact">
-<a href="mailto:info@estwe.com" class="mail-link">info@estwe.com</a>
+
+<a href="mailto:info@estwe.com" class="mail-link">
+info@estwe.com
+</a>
 
 <div class="socials">
 
