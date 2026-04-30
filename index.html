@@ -129,15 +129,15 @@ p {
   transform: translateZ(0);
   will-change: transform, opacity;
 
-  animation: iconPulse 8s ease-in-out infinite;
-  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  animation: iconPulse 7.1s ease-in-out infinite; ✅
 }
 
-/* hover */
 .socials a:hover .social-icon {
   opacity: 1;
   transform: translateY(-2px);
   filter: drop-shadow(0 0 8px rgba(197,160,89,0.45));
+
+  animation-play-state: paused;
 }
 
 /* микро-задержка */
