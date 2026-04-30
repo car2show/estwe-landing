@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+/* база */
 :root {
   --bg: #000;
   --text: #C5A059;
@@ -27,13 +28,20 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* контейнер */
 .container {
   text-align: center;
   max-width: 340px;
   padding: 20px;
 }
 
-/* ЛОГО */
+/* --- ЛОГО --- */
+
 .logo-wrap {
   position: relative;
   display: inline-block;
@@ -45,12 +53,13 @@ body {
   fill: currentColor;
   opacity: 0;
   transform: translateY(10px);
+  will-change: transform, opacity;
   animation:
-    reveal 1.2s ease forwards,
-    glow 4s infinite ease-in-out 1.2s;
+    reveal 1.2s cubic-bezier(0.22,1,0.36,1) forwards,
+    glow 5s ease-in-out infinite 1.2s;
 }
 
-/* БЛИК */
+/* блик */
 .logo-wrap::after {
   content: "";
   position: absolute;
@@ -61,14 +70,15 @@ body {
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,0.15),
+    rgba(255,255,255,0.12),
     transparent
   );
   transform: skewX(-20deg);
   animation: shine 2.5s ease forwards 1s;
 }
 
-/* текст */
+/* --- ТЕКСТ --- */
+
 p {
   font-size: 0.75rem;
   opacity: 0.5;
@@ -77,103 +87,106 @@ p {
   margin-top: 20px;
 }
 
-/* футер */
+/* --- ФУТЕР --- */
+
 .contact {
   margin-top: 50px;
   border-top: 1px solid var(--border);
   padding-top: 25px;
 }
 
+/* почта */
 .mail-link {
-  display: block;
-  font-size: 0.85rem;
-  text-decoration: none;
-  color: var(--text);
   opacity: 0.5;
-  margin-bottom: 25px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .mail-link:hover {
   opacity: 1;
+  transform: translateY(-1px);
+  text-shadow: 0 0 6px rgba(197,160,89,0.3);
 }
 
-/* соцсети */
+/* --- СОЦСЕТИ --- */
+
 .socials {
   display: flex;
   justify-content: center;
   gap: 25px;
 }
 
+/* ВАЖНО: анимация на SVG, не на <a> */
 .social-icon {
-  fill: currentColor;
-  opacity: 0.4;
-  transition: 0.3s;
   width: 20px;
   height: 20px;
-}
-
-.social-icon:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.social-icon {
   fill: currentColor;
   opacity: 0.4;
-  width: 20px;
-  height: 20px;
-  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
-}
 
-.socials a {
+  /* фикс для всех браузеров */
+  transform: translateZ(0);
+  will-change: transform;
+
   animation: iconBreathe 6s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
 }
 
+/* hover — только тут glow */
 .socials a:hover .social-icon {
   opacity: 1;
-  transform: translateY(-2px) scale(1.08);
-  filter: drop-shadow(0 0 6px rgba(197,160,89,0.6));
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(197,160,89,0.5));
 }
 
-.mail-link {
-  opacity: 0.5;
-  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+/* --- АНИМАЦИИ --- */
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.mail-link:hover {
-  opacity: 1;
-  transform: translateY(-1px);
-  text-shadow: 0 0 8px rgba(197,160,89,0.4);
-}
-
-  @keyframes reveal {
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* glow только на логотипе (это ок) */
 @keyframes glow {
-  0% { filter: drop-shadow(0 0 0px transparent); }
-  50% { filter: drop-shadow(0 0 20px rgba(218,165,32,0.5)); }
-  100% { filter: drop-shadow(0 0 0px transparent); }
+  0%   { filter: drop-shadow(0 0 2px rgba(197,160,89,0.1)); }
+  50%  { filter: drop-shadow(0 0 16px rgba(197,160,89,0.35)); }
+  100% { filter: drop-shadow(0 0 2px rgba(197,160,89,0.1)); }
 }
 
-@keyframes shine {
-  0% { left: -120%; opacity: 0; }
-  30% { opacity: 1; }
-  100% { left: 120%; opacity: 0; }
-}
-
+/* стабильная анимация (без лагов в Firefox) */
 @keyframes iconBreathe {
   0%,100% {
-  transform: translateY(0);
-}
+    transform: scale(1);
+  }
   50% {
-  transform: translateY(-1px);
+    transform: scale(1.04);
+  }
+}
+
+/* блик */
+@keyframes shine {
+  0% {
+    left: -120%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+/* доступность */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .social-icon,
+  .logo-wrap::after {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 </style>
 </head>
