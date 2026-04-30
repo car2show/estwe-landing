@@ -118,8 +118,41 @@ p {
   transform: translateY(-2px);
 }
 
-/* анимации */
-@keyframes reveal {
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.social-icon {
+  fill: currentColor;
+  opacity: 0.4;
+  width: 20px;
+  height: 20px;
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+
+.socials a {
+  animation: iconBreathe 6s ease-in-out infinite;
+}
+
+.socials a:hover .social-icon {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(197,160,89,0.6));
+}
+
+.mail-link {
+  opacity: 0.5;
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+
+.mail-link:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  text-shadow: 0 0 8px rgba(197,160,89,0.4);
+}
+
+  @keyframes reveal {
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -133,6 +166,14 @@ p {
   0% { left: -120%; opacity: 0; }
   30% { opacity: 1; }
   100% { left: 120%; opacity: 0; }
+}
+
+@keyframes iconBreathe {
+  0%,100% {
+  transform: translateY(0);
+}
+  50% {
+  transform: translateY(-1px);
 }
 </style>
 </head>
