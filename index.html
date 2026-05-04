@@ -30,7 +30,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -82,7 +81,8 @@ a {
 }
 
 .logo {
-  width: 100%;
+  width: 180px;
+  max-width: 100%;
   fill: currentColor;
   opacity: 0;
   transform: translateY(12px);
@@ -111,14 +111,13 @@ h1 {
   font-size: 0.85rem;
   opacity: 0.5;
   letter-spacing: 0.08em;
-  transition: all 0.3s ease;
-}
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;}
 
 @media (hover: hover) {
   .mail-link:hover {
     opacity: 1;
     transform: translateY(-1px);
-    text-shadow: 0 0 8px rgba(197,160,89,0.35);
+    filter: drop-shadow(0 0 6px rgba(197,160,89,0.35));
   }
 }
 
@@ -136,11 +135,10 @@ h1 {
 .social-icon {
   width: 22px;
   height: 22px;
-  stroke: currentColor;
-  stroke-width: 1.6;
-  fill: none;
+  fill: currentColor;
   opacity: 0.4;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  will-change: transform;
 }
 
   .visually-hidden {
@@ -154,14 +152,22 @@ h1 {
   white-space: nowrap;
   border: 0;
 }
+
+  .tagline {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.6;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
   
 @media (hover: hover) {
   .socials a:hover .social-icon {
     opacity: 1;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     filter: drop-shadow(0 0 8px rgba(197,160,89,0.45));
   }
-}
 
 @keyframes reveal {
   to {
@@ -212,29 +218,26 @@ info@estwe.com
 
 <div class="socials">
 
-<a href="https://instagram.com/estwe_com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-<svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-<rect x="3" y="3" width="18" height="18" rx="5"/>
-<circle cx="12" cy="12" r="4"/>
-<circle cx="17.5" cy="6.5" r="1"/>
-</svg>
-</a>
+  <!-- Instagram -->
+  <a href="https://instagram.com/estwe_com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm5.5-1.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
+    </svg>
+  </a>
 
-<a href="https://x.com/estwe_com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-<svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-<line x1="4" y1="4" x2="20" y2="20"/>
-<line x1="20" y1="4" x2="4" y2="20"/>
-</svg>
-</a>
+  <!-- X -->
+  <a href="https://x.com/estwe_com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-7-6.1 7H2l8-9.2L2.8 2h6.9l4.8 6.4L18.9 2z"/>
+    </svg>
+  </a>
 
-<a href="https://linkedin.com/company/estwe_com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-<svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-<rect x="3" y="3" width="18" height="18" rx="2"/>
-<line x1="8" y1="11" x2="8" y2="16"/>
-<circle cx="8" cy="8" r="1"/>
-<path d="M12 16v-4c0-1.5 2-2 3-1 0 0 1 .5 1 2v3"/>
-</svg>
-</a>
+  <!-- Telegram -->
+  <a href="https://t.me/estwe_com" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 3L3 10.5l5.5 2L10 18l3-4 4 3 4-14z"/>
+    </svg>
+  </a>
 
 </div>
 
