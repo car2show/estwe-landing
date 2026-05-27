@@ -126,37 +126,38 @@
             display: inline-block;
         }
 
-        .logo-wrap::before {
-            content: "";
+.logo-wrap::before {
+    content: "";
 
-            position: absolute;
+    position: absolute;
 
-            top: 50%;
-            left: 50%;
+    top: 50%;
+    left: 50%;
 
-            width: 260px;
-            height: 260px;
+    width: 340px;
+    height: 340px;
 
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-            border-radius: 50%;
+    border-radius: 50%;
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(197,160,89,0.08) 0%,
-                    rgba(197,160,89,0.03) 45%,
-                    transparent 72%
-                );
+    background:
+        radial-gradient(
+            circle,
+            rgba(197,160,89,0.16) 0%,
+            rgba(197,160,89,0.08) 42%,
+            rgba(197,160,89,0.03) 62%,
+            transparent 78%
+        );
 
-            z-index: -1;
+    z-index: -1;
 
-            pointer-events: none;
+    pointer-events: none;
 
-            opacity: 0.45;
+    opacity: 0.9;
 
-            filter: blur(18px);
-        }
+    filter: blur(22px);
+}
 
         .logo {
             width: 280px;
@@ -492,20 +493,23 @@
 
         @keyframes glow {
 
-            0%,
-            100% {
-                filter:
-                    drop-shadow(
-                        0 0 2px rgba(197,160,89,0.06)
-                    );
-            }
+    0%,
+    100% {
+        filter:
+            drop-shadow(
+                0 0 5px rgba(197,160,89,0.12)
+            );
+    }
 
-            50% {
-                filter:
-                    drop-shadow(
-                        0 0 4px rgba(197,160,89,0.10)
-                    );
-            }
+    50% {
+        filter:
+            drop-shadow(
+                0 0 12px rgba(197,160,89,0.20)
+            )
+            drop-shadow(
+                0 0 26px rgba(197,160,89,0.08)
+            );
+    }
         }
 
         @keyframes float {
