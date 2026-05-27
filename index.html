@@ -184,7 +184,7 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 10px;
+    gap: 4px;
 
     font-size: 0.75rem;
     font-weight: 400;
@@ -208,7 +208,7 @@
 
     letter-spacing: 0.9em;
 
-    opacity: 0.55;
+    opacity: 0.72;
 }
         .contact {
             width: 100%;
@@ -490,26 +490,26 @@
             }
         }
 
-        @keyframes glow {
+@keyframes glow {
 
-            0%,
-            100% {
-                filter:
-                    drop-shadow(
-                        0 0 4px rgba(197,160,89,0.14)
-                    );
-            }
+    0%,
+    100% {
+        filter:
+            drop-shadow(
+                0 0 3px rgba(197,160,89,0.10)
+            );
+    }
 
-            50% {
-                filter:
-                    drop-shadow(
-                        0 0 10px rgba(197,160,89,0.22)
-                    )
-                    drop-shadow(
-                        0 0 22px rgba(197,160,89,0.12)
-                    );
-            }
-        }
+    50% {
+        filter:
+            drop-shadow(
+                0 0 7px rgba(197,160,89,0.16)
+            )
+            drop-shadow(
+                0 0 8px rgba(197,160,89,0.05)
+            );
+    }
+}
 
         @keyframes float {
 
