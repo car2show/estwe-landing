@@ -187,7 +187,14 @@
 
             text-transform: uppercase;
 
-            opacity: 0.58;
+            opacity: 0;
+
+            transform: translateY(8px);
+
+            animation:
+                taglineReveal 1s ease forwards;
+
+            animation-delay: 0.5s;
         }
 
         .contact {
@@ -312,6 +319,24 @@
 
             box-shadow:
                 0 0 60px rgba(197,160,89,0.06);
+
+            transform:
+                scale(0.96)
+                translateY(8px);
+
+            opacity: 0;
+
+            transition:
+                transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                opacity 0.35s ease;
+        }
+
+        .contact-modal.active .contact-modal-inner {
+            transform:
+                scale(1)
+                translateY(0);
+
+            opacity: 1;
         }
 
         .contact-modal-inner h2 {
@@ -485,6 +510,15 @@
             }
         }
 
+        @keyframes taglineReveal {
+
+            to {
+                opacity: 0.58;
+
+                transform: translateY(0);
+            }
+        }
+
         @keyframes pageFade {
 
             from {
@@ -500,6 +534,12 @@
 
             .logo {
                 width: 240px;
+            }
+
+            .logo-wrap::before {
+                inset: -40px;
+
+                opacity: 0.7;
             }
 
             .tagline {
